@@ -1,0 +1,59 @@
+
+
+\newif\iftr     % Full arXiv technical report
+\newif\ifconf   % Size-constrainted Submission to a conf or journal
+\newif\ifnonb   % Non blind submission
+
+%%%%%%%%%%%%%
+% Various
+%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\newcommand{\code}[1]{\texttt{#1}}
+% binary units
+\usepackage[binary-units=true]{siunitx}
+\usepackage{xspace}
+
+%%%%%%%%%%%%%
+% Algorithm stuff
+%%%%%%%%%%%%%
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{pifont}
+\usepackage{amsmath}
+% clash with acmart
+\let\Bbbk\relax
+\renewcommand{\algorithmicforall}{\textbf{for each}}
+% Various for each, for each in parallel, for each mod P...
+\def\ForEach{\ForAll}
+\algdef{SE}[FOREACHIN]{ForEachIn}{EndForEachIn}[2]{\algorithmicfor\ \textbf{each}\ #1\ \textbf{in}\ #2\ \textbf{do}}{\algorithmicend\ \algorithmicfor}%
+\algdef{SE}[FOREACHP]{ForEachP}{EndForEachP}[1]{\algorithmicfor\ \textbf{each}\ #1\ \textbf{in parallel do}}{\algorithmicend\ \algorithmicfor}%
+\algdef{SE}[FOREACHINP]{ForEachInP}{EndForEachInP}[2]{\algorithmicfor\ \textbf{each}\ #1\ \textbf{in}\ #2\ \textbf{in parallel do}}{\algorithmicend\ \algorithmicfor}%
+\algdef{SE}[FORMOD]{ForMod}{EndForMod}[3]{\algorithmicfor\ #1\ \textbf{from}\ #2\ \textbf{to}\ #3\ \textbf{do}}{\algorithmicend\ \algorithmicfor}%
+\algdef{SE}[FORMOD]{ForModS}{EndForModS}[4]{\algorithmicfor\ #1\ \textbf{from}\ #2\ \textbf{to}\ #3\ \textbf{step}\ #4\ \textbf{do}}{\algorithmicend\ \algorithmicfor}%
+\algdef{SE}[FORMODP]{ForModPS}{EndForModPS}[3]{\algorithmicfor\ #1\ \textbf{from}\ #2\ \textbf{to}\ #3\ \textbf{in parallel do}}{\algorithmicend\ \algorithmicfor}%
+\algdef{SE}[FORMODP]{ForModP}{EndForModP}[4]{\algorithmicfor\ #1\ \textbf{from}\ #2\ \textbf{to}\ #3\ \textbf{step} #4\ \textbf{in parallel do}}{\algorithmicend\ \algorithmicfor}%
+
+\algdef{SE}[VARIABLES]{Variables}{EndVariables}{\algorithmicvariables}
+  {\algorithmicend\ \algorithmicvariables}
+  \algnewcommand{\algorithmicvariables}{\textbf{global}}
+\algnewcommand{\LineComment}[1]{\State \(\triangleright\) #1}
+% https://tex.stackexchange.com/questions/50908/algorithms-and-boolean-operator-casuing-undefined-control-sequence-error
+\algnewcommand{\And}{\textbf{and}\xspace}
+
+%%%%%%%%%%%%%
+% Tikz nodes in text
+%%%%%%%%%%%%%
+% https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+\usepackage{tikz}
+\DeclareRobustCommand*\circled[1]{\tikz[baseline=(char.base)]{
+\node[shape=circle,fill=brown,draw=brown,inner sep=0pt] (char) {\textcolor{white}{\small\textbf{#1}}};}}
+\DeclareRobustCommand*\circledColor[2]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,fill=#2,draw=#2,inner sep=1pt] (char) {\textcolor{white}{\small\textbf{#1}}};}}
+
+%%%%%%%%%%%%%
+% Notes
+%%%%%%%%%%%%%
+\usepackage{collab}
+\collabAuthor{copik}{blue}{Marcin}
+\collabAuthor{htor}{red}{Torsten}
+
