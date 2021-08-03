@@ -12,6 +12,7 @@
 % binary units
 \usepackage[binary-units=true]{siunitx}
 \usepackage{xspace}
+\usepackage{xcolor}
 
 %%%%%%%%%%%%%
 % Notes
@@ -19,6 +20,12 @@
 \usepackage{collab}
 % Define author:
 %\collabAuthor{cmd_name}{color}{display_name}
+
+%%%%%%%%%%%%%
+% Bibliography
+%%%%%%%%%%%%%
+% citep
+\usepackage{natbib}
 
 %%%%%%%%%%%%%
 % Highlight
@@ -64,14 +71,70 @@
 % https://tex.stackexchange.com/questions/50908/algorithms-and-boolean-operator-casuing-undefined-control-sequence-error
 \algnewcommand{\And}{\textbf{and}\xspace}
 
+
 %%%%%%%%%%%%%
-% Tikz nodes in text
+% Tikz nodes in the text
 %%%%%%%%%%%%%
 % https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
 \usepackage{tikz}
+\usepackage{pifont}
 \DeclareRobustCommand*\circled[1]{\tikz[baseline=(char.base)]{
 \node[shape=circle,fill=brown,draw=brown,inner sep=0pt] (char) {\textcolor{white}{\small\textbf{#1}}};}}
 \DeclareRobustCommand*\circledColor[2]{\tikz[baseline=(char.base)]{
     \node[shape=circle,fill=#2,draw=#2,inner sep=1pt] (char) {\textcolor{white}{\small\textbf{#1}}};}}
 
-
+%%%%%%%%%%%%%%
+% C++ listings
+%%%%%%%%%%%%%%
+\usepackage{listings}
+\newfloat{codeblock}{H}{myc}
+%\newcommand{\code}[1]{\figure{#1}}
+\definecolor{darkblue}{rgb}{0,0,.6}
+\definecolor{darkred}{rgb}{.6,0,0}
+%\definecolor{darkgreen}{rgb}{0,.6,0}
+\definecolor{darkgreen}{rgb}{0,.5,0}
+\definecolor{red}{rgb}{.98,0,0}
+\definecolor{gray}{rgb}{.6,.6,.6}
+\lstloadlanguages{C++}
+% Settings for the lstlistings environment
+\lstset{
+	language=C++,                       % choose the language of the code
+  basicstyle=\footnotesize\ttfamily\linespread{0.8},  % the size of the fonts that are used for the
+	%basicstyle=\scriptsize,  % the size of the fonts that are used for the
+	% code
+	numbers=left,                       % where to put the line-numbers
+	numberstyle=\tiny,                  % the size of the fonts that are used for the
+	% line-numbers
+	stepnumber=1,                       % the step between two line-numbers. If it's
+	% 1 each line will be numbered
+	numbersep=5pt,                      % how far the line-numbers are from the code
+	%backgroundcolor=\color{gray},      % choose the background color. You must add
+	% \usepackage{color}
+	showspaces=false,                   % show spaces adding particular underscores
+	showstringspaces=false,             % underline spaces within strings
+	showtabs=false,                     % show tabs within strings adding particular
+	% underscores
+	keywordstyle=\bfseries\color{black},  % color of the keywords
+	commentstyle=\color{darkgreen},     % color of the comments
+	stringstyle=\color{darkred},        % color of strings
+	captionpos=b,                       % sets the caption-position to top
+	tabsize=2,                          % sets default tabsize to 2 spaces
+	frame=tb,                       % adds a frame around the code
+	breaklines=true,                    % sets automatic line breaking
+	breakatwhitespace=false,            % sets if automatic breaks should only happen
+	% at whitespace
+	%escapechar=\%,                      % toggles between regular LaTeX and listing
+	%belowskip=0.3cm,                    % vspace after listing
+	morecomment=[s][\bfseries]{struct}{\ },
+	morecomment=[s][\bfseries]{class}{\ },
+	morecomment=[s][\bfseries]{public:}{\ },
+	morecomment=[s][\bfseries]{public}{\ },
+	morecomment=[s][\bfseries]{protected:}{\ },
+	morecomment=[s][\bfseries]{private:}{\ },
+	morecomment=[s][\bfseries\color{black}]{operator+}{\ },
+	xleftmargin=0.1cm,
+  literate={\%}{\%}{1},
+	%xrightmargin=0.1cm,
+  aboveskip=0pt,
+  belowskip=0pt,
+}
