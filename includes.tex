@@ -82,6 +82,8 @@
 \node[shape=circle,fill=brown,draw=brown,inner sep=0pt] (char) {\textcolor{white}{\small\textbf{#1}}};}}
 \DeclareRobustCommand*\circledColor[2]{\tikz[baseline=(char.base)]{
     \node[shape=circle,fill=#2,draw=#2,inner sep=1pt] (char) {\textcolor{white}{\small\textbf{#1}}};}}
+\DeclareRobustCommand*\circledColorSmall[2]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,fill=#2,draw=#2,inner sep=0pt] (char) {\textcolor{white}{\footnotesize\textbf{#1}}};}}
 
 %%%%%%%%%%%%%%
 % C++ listings
