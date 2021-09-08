@@ -85,6 +85,11 @@
     \node[shape=circle,fill=#2,draw=#2,inner sep=1pt] (char) {\textcolor{white}{\small\textbf{#1}}};}}
 \DeclareRobustCommand*\circledColorSmall[2]{\tikz[baseline=(char.base)]{
     \node[shape=circle,fill=#2,draw=#2,inner sep=0pt] (char) {\textcolor{white}{\footnotesize\textbf{#1}}};}}
+\DeclareRobustCommand*\nodeColor[3]{
+  \tikz[baseline=(char.base)]{
+    \node[shape=#3,fill=#2,draw=#2,inner sep=0pt] (char) {\textcolor{white}{\small\textbf{#1}}};
+  }
+}
 \DeclareRobustCommand*\nodeColorSmall[3]{
   \tikz[baseline=(char.base)]{
     \node[shape=#3,fill=#2,draw=#2,inner sep=0pt] (char) {\textcolor{white}{\footnotesize\textbf{#1}}};
