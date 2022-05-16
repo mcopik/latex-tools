@@ -25,7 +25,7 @@
 % Bibliography
 %%%%%%%%%%%%%
 % citep
-\usepackage[numbers,sort&compress]{natbib}
+%\usepackage[numbers,sort&compress]{natbib}
 
 %%%%%%%%%%%%%
 % Highlight
@@ -47,7 +47,7 @@
 % Algorithm stuff
 %%%%%%%%%%%%%
 \usepackage{algorithm}
-\usepackage{algpseudocode}
+\usepackage[noend]{algpseudocode}
 \usepackage{pifont}
 \usepackage{amsmath}
 % clash with acmart
@@ -56,16 +56,22 @@
 % Various for each, for each in parallel, for each mod P...
 \def\ForEach{\ForAll}
 \algdef{SE}[FOREACHIN]{ForEachIn}{EndForEachIn}[2]{\algorithmicfor\ \textbf{each}\ #1\ \textbf{in}\ #2\ \textbf{do}}{\algorithmicend\ \algorithmicfor}%
+%\algdef{SE}[FOREACHIN]{ForEachIn}{EndForEachIn}[2]{\algorithmicfor\ \textbf{each}\ #1\ \textbf{in}\ #2\ \textbf{do}}{}%
 \algdef{SE}[FOREACHP]{ForEachP}{EndForEachP}[1]{\algorithmicfor\ \textbf{each}\ #1\ \textbf{in parallel do}}{\algorithmicend\ \algorithmicfor}%
+%\algdef{SE}[FOREACHP]{ForEachP}{EndForEachP}[1]{\algorithmicfor\ \textbf{each}\ #1\ \textbf{in parallel do}}{}%
 \algdef{SE}[FOREACHINP]{ForEachInP}{EndForEachInP}[2]{\algorithmicfor\ \textbf{each}\ #1\ \textbf{in}\ #2\ \textbf{in parallel do}}{\algorithmicend\ \algorithmicfor}%
 \algdef{SE}[FORMOD]{ForMod}{EndForMod}[3]{\algorithmicfor\ #1\ \textbf{from}\ #2\ \textbf{to}\ #3\ \textbf{do}}{\algorithmicend\ \algorithmicfor}%
 \algdef{SE}[FORMOD]{ForModS}{EndForModS}[4]{\algorithmicfor\ #1\ \textbf{from}\ #2\ \textbf{to}\ #3\ \textbf{step}\ #4\ \textbf{do}}{\algorithmicend\ \algorithmicfor}%
 \algdef{SE}[FORMODP]{ForModPS}{EndForModPS}[3]{\algorithmicfor\ #1\ \textbf{from}\ #2\ \textbf{to}\ #3\ \textbf{in parallel do}}{\algorithmicend\ \algorithmicfor}%
 \algdef{SE}[FORMODP]{ForModP}{EndForModP}[4]{\algorithmicfor\ #1\ \textbf{from}\ #2\ \textbf{to}\ #3\ \textbf{step} #4\ \textbf{in parallel do}}{\algorithmicend\ \algorithmicfor}%
 
+% avoid displaying empty lines when there's nothing at the end
+\algtext*{EndForEachIn}
+\algtext*{EndForEachP}
+
 \algdef{SE}[VARIABLES]{Variables}{EndVariables}{\algorithmicvariables}
   {\algorithmicend\ \algorithmicvariables}
-  \algnewcommand{\algorithmicvariables}{\textbf{global}}
+\algnewcommand{\algorithmicvariables}{\textbf{global}}
 \algnewcommand{\LineComment}[1]{\State \(\triangleright\) #1}
 % https://tex.stackexchange.com/questions/50908/algorithms-and-boolean-operator-casuing-undefined-control-sequence-error
 \algnewcommand{\And}{\textbf{and}\xspace}
@@ -95,6 +101,7 @@
   }%
 }
 
+\usepackage{float}
 %%%%%%%%%%%%%%
 % C++ listings
 %%%%%%%%%%%%%%
