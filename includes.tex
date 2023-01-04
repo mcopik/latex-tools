@@ -63,6 +63,20 @@
 \algdef{SE}[FORMODP]{ForModPS}{EndForModPS}[3]{\algorithmicfor\ #1\ \textbf{from}\ #2\ \textbf{to}\ #3\ \textbf{in parallel do}}{\algorithmicend\ \algorithmicfor}%
 \algdef{SE}[FORMODP]{ForModP}{EndForModP}[4]{\algorithmicfor\ #1\ \textbf{from}\ #2\ \textbf{to}\ #3\ \textbf{step} #4\ \textbf{in parallel do}}{\algorithmicend\ \algorithmicfor}%
 
+% FIXME - make it configurable
+
+\iftoggle{AlgsNoEnd} {
+  \algtext*{EndFunction}% Remove "end while" text
+  \algtext*{EndIf}% Remove "end if" text
+  \algtext*{EndFor}% Remove "end if" text
+  \algtext*{EndForEachIn}% Remove "end if" text
+  \algtext*{EndForEachP}% Remove "end if" text
+  \algtext*{EndForEachInP}% Remove "end if" text
+  \algtext*{EndForModP}% Remove "end if" text
+  \algtext*{EndForModPS}% Remove "end if" text
+  \algtext*{EndForModS}% Remove "end if" text
+}{}
+
 \algdef{SE}[VARIABLES]{Variables}{EndVariables}{\algorithmicvariables}
   {\algorithmicend\ \algorithmicvariables}
   \algnewcommand{\algorithmicvariables}{\textbf{global}}
