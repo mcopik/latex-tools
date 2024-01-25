@@ -45,7 +45,11 @@
 % Algorithm stuff
 %%%%%%%%%%%%%
 \usepackage{algorithm}
-\usepackage[noend]{algpseudocode}
+\iftoggle{AlgsNoEnd} {
+  \usepackage[noend]{algpseudocode}
+}{
+  \usepackage{algpseudocode}
+}
 \usepackage{pifont}
 \usepackage{amsmath}
 % clash with acmart
